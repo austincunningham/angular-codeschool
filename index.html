@@ -42,9 +42,8 @@
           <div>
             <product-description ng-show="tab.isSet(1)"></product-description>
           </div>
-          <div ng-show="tab.isSet(2)">
-            <h4>Specs</h4>
-            <blockquote>Shine: {{product.shine}}</blockquote>
+          <div product-specs ng-show="tab.isSet(2)">
+            
           </div>
           <div ng-show="tab.isSet(3)">
             <ul>
