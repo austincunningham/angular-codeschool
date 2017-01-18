@@ -27,25 +27,9 @@
             </li>
           </ul>
         </div>
-        <section ng-controller="TabController as tab">
-          <ul class="nav nav-pills">
-            <li ng-class="{ active:tab.isSet(1) }">
-              <a href="" ng-click="tab.setTab(1)">Description</a>
-            </li>
-            <li ng-class="{ active:tab.isSet(2) }">
-              <a href="" ng-click="tab.setTab(2)">Specs</a>
-            </li>
-            <li ng-class="{ active:tab.isSet(3) }">
-              <a href="" ng-click="tab.setTab(3)">Reviews</a>
-            </li>
-          </ul>
-          <div>
-            <product-description ng-show="tab.isSet(1)"></product-description>
-          </div>
-          <div product-specs ng-show="tab.isSet(2)">
-            
-          </div>
-          <div ng-show="tab.isSet(3)">
+        <product-tabs></product-tabs>
+
+
             <ul>
               <h4>Reviews</h4>
               <li ng-repeat="review in product.reviews">
@@ -86,7 +70,7 @@
             </form>
 
           </div>
-        </section>
+        
       </div>
     </div>
   </body>
