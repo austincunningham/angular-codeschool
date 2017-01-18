@@ -1,23 +1,20 @@
 (function() {
-  var app = angular.module('gemStore', []);
+  var app = angular.module('gemStore', ['store-products']);
 
-  app.controller('StoreController', function(){
+ app.controller('StoreController', function(){
     this.products = gems;
   });
+// need some api for this
+  // app.controller('StoreController', ['$http',function($http){
+  //   var store = this;
+  //   store.products = [];
+  //   $http.get('/store-products.json').success(function(data){
+  //     store.products = data;
+  //   });
+  // }]);
+  //
 
-  app.directive('productGallery', function(){
-    return {
-      restrict: 'E',
-      templateUrl: 'product-gallery.html',
-      controller: function(){
-        this.current = 0;
-        this.setCurrent = function(imageNumber){
-        this.current = imageNumber || 0;
-        };
-      },
-      controllerAs: 'gallery'
-    };
-  });
+  
 
 
   app.controller('ReviewController', function(){
@@ -29,38 +26,7 @@
     };
   });
 
-  app.directive("productDescription", function(){
-    return{
-      restrict: 'E',
-      templateUrl: 'product-description.html'
-    };
-  });
-
-  app.directive("productSpecs", function(){
-      return {
-        restrict: 'A',
-        templateUrl: "product-specs.html"
-      };
-    });
-
-  app.directive("productTabs", function(){
-    return {
-      restrict: 'E',
-      templateUrl: "product-tabs.html",
-      controller: function(){
-        this.tab = 1;
-
-        this.isSet = function(checkTab) {
-          return this.tab === checkTab;
-        };
-
-        this.setTab = function(setTab) {
-          this.tab = setTab;
-        };
-      },
-      controllerAs: 'tab'
-    };
-  });
+  
 
 
   var gems = [{
@@ -72,9 +38,19 @@
       color: '#CCC',
       faces: 14,
       images: [
-        "images/gem-02.jpeg",
-        "images/gem-05.jpeg",
-        "images/gem-09.jpeg"
+        {
+          image:"images/gem-02.jpeg",
+          tumb:"images/gem-02-tumb.jpeg"
+        },
+        {
+          image:"images/gem-05.jpeg",
+          tumb:"images/gem-05-tumb.jpeg"
+        },
+        {
+          image:"images/gem-09.jpeg",
+          tumb:"images/gem-09-tumb.jpeg"
+        }
+        
       ],
       reviews: [{
         stars: 5,
@@ -96,9 +72,19 @@
       color: '#EEE',
       faces: 12,
       images: [
-        "images/gem-01.jpeg",
-        "images/gem-03.jpeg",
-        "images/gem-04.jpeg",
+        {
+          image:"images/gem-01.jpeg",
+          tumb:"images/gem-01-tumb.jpeg"
+        },
+        {
+          image:"images/gem-03.jpeg",
+          tumb:"images/gem-03-tumb.jpeg"
+        },
+        {
+          image:"images/gem-04.jpeg",
+          tumb:"images/gem-04-tumb.jpeg"
+        }
+        
       ],
       reviews: [{
         stars: 3,
@@ -120,9 +106,19 @@
       color: '#000',
       faces: 6,
       images: [
-        "images/gem-06.jpeg",
-        "images/gem-07.jpeg",
-        "images/gem-08.jpeg"
+        {
+          image:"images/gem-06.jpeg",
+          tumb:"images/gem-06-tumb.jpeg"
+        },
+        {
+          image:"images/gem-07.jpeg",
+          tumb:"images/gem-07-tumb.jpeg"
+        },
+        {
+          image:"images/gem-08.jpeg",
+          tumb:"images/gem-08-tumb.jpeg"
+        }
+        
       ],
       reviews: [{
         stars: 1,
